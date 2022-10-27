@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "pPvVPuKmm6hKrkdDWZrW03GsiUzjUmH8Q75JNUav2FKZWy6GhSz72i0aSvr3mtZNQQzC9qGy4f1x7HD2VDe0Qg==",
+  "success": true,
+  "projectFilePath": "/Users/toddbuck/Desktop/Github/CSharp/BankingApp/BankingApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/toddbuck/.nuget/packages/microsoft.data.sqlite/6.0.10/microsoft.data.sqlite.6.0.10.nupkg.sha512",
+    "/Users/toddbuck/.nuget/packages/microsoft.data.sqlite.core/6.0.10/microsoft.data.sqlite.core.6.0.10.nupkg.sha512",
+    "/Users/toddbuck/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.6/sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
+    "/Users/toddbuck/.nuget/packages/sqlitepclraw.core/2.0.6/sqlitepclraw.core.2.0.6.nupkg.sha512",
+    "/Users/toddbuck/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.6/sqlitepclraw.lib.e_sqlite3.2.0.6.nupkg.sha512",
+    "/Users/toddbuck/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.0.6/sqlitepclraw.provider.e_sqlite3.2.0.6.nupkg.sha512",
+    "/Users/toddbuck/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}

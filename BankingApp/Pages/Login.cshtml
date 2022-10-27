@@ -1,0 +1,42 @@
+﻿@page
+@model BankingApp.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container border" style="padding: 20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <!--CardNum Collection-->
+        <div class="form-group-row">
+            <div class="col-2" style="padding-bottom: 10px">
+                <label asp-for="UserCredentials.CardNum"></label>
+            </div>
+            <div class="col-5" style="padding-bottom: 20px">
+                <input type="text" asp-for="UserCredentials.CardNum" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="UserCredentials.CardNum"></span>
+        </div>
+
+        <!--Pin Collection-->
+        <div class="form-group-row">
+            <div class="col-2" style="padding-bottom: 10px">
+                <label asp-for="UserCredentials.Pin"></label>
+            </div>
+            <div class="col-5" style="padding-bottom: 20px">
+                <input type="password" asp-for="UserCredentials.Pin" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="UserCredentials.Pin"></span>
+        </div>
+
+        <!--Submit Button-->
+        <div class="form-group-row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Login" />
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+    </form>
+</div>
