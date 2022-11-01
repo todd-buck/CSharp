@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/toddbuck/Desktop/Github/CSharp/BankingApp
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/AccountHome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudEhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/CreateAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3JlYXRlQWNjb3VudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

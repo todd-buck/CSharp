@@ -82,15 +82,27 @@ namespace BankingApp
 
         }
 
-        //TODO
-        //public, will be called by UI to validate login attempts
-        public static User ValidateUser(User PotentialUser)
+        public User ValidateUser(User PotentialUser)
         {
-            //insert SQL Query that returns DB row for valid CardNum/Pin combo
-            //if SQL Query returns successfully, assign PotentialUser fields and set IsValidUser to true 
+            SqliteDataReader sqlite_datareader;
+            SqliteCommand sqlite_cmd;
+            sqlite_cmd = sqlite_conn.CreateCommand();
+            sqlite_cmd.CommandText = $"SELECT * FROM ClientData WHERE CardNum = '{PotentialUser.CardNum}' AND Pin = '{PotentialUser.Pin}'; ";
 
-            //Note: no need to set IsValidUser to false, because constructor already declares user as false
-            //      FirstName, LastName, Balance can be kept empty ("") so that information can be protected
+            sqlite_datareader = sqlite_cmd.ExecuteReader();
+
+            if (sqlite_datareader.HasRows)
+            {
+                sqlite_datareader.Read();
+
+                PotentialUser.FirstName = sqlite_datareader.GetString(0);
+                PotentialUser.LastName = sqlite_datareader.GetString(1);
+                PotentialUser.CardNum = sqlite_datareader.GetString(2);
+                PotentialUser.Pin = sqlite_datareader.GetString(3);
+                PotentialUser.Balance = sqlite_datareader.GetString(4);
+                PotentialUser.IsValidUser = true;
+
+            }
 
             return PotentialUser;
         }
@@ -108,7 +120,7 @@ namespace BankingApp
 
 
         //public, will be called by UI to create new user
-        public static User InsertNewUser(User PotentialNewUser)
+        public User InsertNewUser(User PotentialNewUser)
         {
             //get a card number for the new user
             User NewUser = GenerateRandomCardNum(PotentialNewUser);
@@ -124,6 +136,12 @@ namespace BankingApp
 
             //new user is now a valid user, mark before return so that they can get to the account home successfully
             NewUser.IsValidUser = true;
+
+            Console.WriteLine("FirstName: " + PotentialNewUser.FirstName);
+            Console.WriteLine("LastName: " + PotentialNewUser.LastName);
+            Console.WriteLine("CardNum: " + PotentialNewUser.CardNum);
+            Console.WriteLine("Pin: " + PotentialNewUser.Pin);
+            Console.WriteLine("Balance: " + PotentialNewUser.Balance);
 
             //send the new user back with their updated data, because they're about to get sent to the account homepage
             return NewUser;
@@ -146,7 +164,7 @@ namespace BankingApp
                 sqlite_cmd.CommandText = "SELECT COUNT(*) FROM ClientData WHERE CardNum = " + PotentialCardNum + ";";
                 result = sqlite_cmd.ExecuteScalar();
 
-            } while (result != null);
+            } while (result.ToString() != "0");
 
             //found a good card number, give it to the new user and return
             PotentialNewUser.CardNum = PotentialCardNum;
@@ -167,6 +185,8 @@ namespace BankingApp
 
             return builder.ToString();
         }
+
+
 
         //DEV TOOLBOX
         // dev testing, local main to ensure functionality
@@ -201,6 +221,27 @@ namespace BankingApp
 
         //        Console.WriteLine();
         //    }
+        //}
+
+        //dev testing, displays client data for user validation
+        //public void testQuery(User PotentialUser)
+        //{
+        //    SqliteDataReader sqlite_datareader;
+        //    SqliteCommand sqlite_cmd;
+        //    sqlite_cmd = sqlite_conn.CreateCommand();
+        //    sqlite_cmd.CommandText = $"SELECT * FROM ClientData WHERE CardNum = {PotentialUser.CardNum} AND Pin = {PotentialUser.Pin}";
+
+        //    Console.WriteLine("Test: (" + sqlite_cmd.CommandText + ")");
+
+        //    sqlite_datareader = sqlite_cmd.ExecuteReader();
+
+        //    sqlite_datareader.Read();
+
+        //    Console.WriteLine("FirstName: " + sqlite_datareader.GetString(0));
+        //    Console.WriteLine("LastName: " + sqlite_datareader.GetString(1));
+        //    Console.WriteLine("CardNum: " + sqlite_datareader.GetString(2));
+        //    Console.WriteLine("Pin: " + sqlite_datareader.GetString(3));
+        //    Console.WriteLine("Balance: " + sqlite_datareader.GetString(4));
         //}
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using BankingApp.Pages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -20,19 +21,20 @@ namespace BankingApp
 
         public void OnPost()
         {
-            //TODO
-            //CREATE FORM FIELD GRABBER
-            //grab fields from form
-            //User NewUser = new User(FirstName, LastName, Pin);
+            User NewUser = new User(Request.Form["AccountInformation_NewUser.FirstName"], Request.Form["AccountInformation_NewUser.LastName"], Request.Form["AccountInformation_NewUser.Pin"]);
+            ClientDatabaseConnection clientDbConnection = new ClientDatabaseConnection();
+            NewUser = clientDbConnection.InsertNewUser(NewUser);
 
-            //ClientDatabaseConnection clientDbConnection = new ClientDatabaseConnection()
-            // NewUser = clientDbConnection.InsertNewUser(NewUser);
+            AccountHomeModel AccountHome = new AccountHomeModel();
 
-            //if(NewUser.IsValidUser)
-            //  go to Account Home Page (which will say "Hi {firstname} !")
-            //          Note: Account Home Page will also have a different nav bar with options
-            //                  to deposit, withdraw, and edit account information
-            
+            HttpContext.Session.SetString("FirstName", NewUser.FirstName);
+            HttpContext.Session.SetString("LastName", NewUser.LastName);
+            HttpContext.Session.SetString("CardNum", NewUser.CardNum);
+            HttpContext.Session.SetString("Pin", NewUser.Pin);
+            HttpContext.Session.SetString("Balance", NewUser.Balance);
+            HttpContext.Session.SetInt32("IsValidUser", 1);
+
+            Response.Redirect("AccountHome");
         }
 
         public class AccountInformation

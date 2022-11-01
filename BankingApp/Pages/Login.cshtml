@@ -3,6 +3,10 @@
 @{
     ViewData["Title"] = "Login";
 }
+@{
+    string ErrorMessage = "";
+    if (Model.InvalidCredentials == true) ErrorMessage = "Invalid Card Number/Pin. Please Try Again.";
+}
 
 <div class="container border" style="padding: 20px">
     <form method="post">
@@ -39,4 +43,8 @@
             </div>
         </div>
     </form>
+    <p>
+    <br />
+    <span style="color:red; padding-top:20px">@ErrorMessage</span>
+    </p>
 </div>

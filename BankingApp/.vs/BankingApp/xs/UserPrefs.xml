@@ -3,15 +3,9 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Login.cshtml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Index.cshtml">
     <Files>
-      <File FileName="Pages/CreateAccount.cshtml" Line="18" Column="15" IsPinned="True" />
-      <File FileName="Pages/CreateAccount.cshtml.cs" Line="43" Column="1" IsPinned="True" />
-      <File FileName="Pages/Login.cshtml" Line="21" Column="37" IsPinned="True" />
-      <File FileName="Pages/Login.cshtml.cs" Line="23" Column="13" IsPinned="True" />
-      <File FileName="Program.cs" Line="14" Column="2" />
-      <File FileName="Database.cs" Line="207" Column="1" />
-      <File FileName="User.cs" Line="53" Column="1" />
+      <File FileName="Pages/Index.cshtml" Line="9" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,9 +13,6 @@
           <Node name="BankingApp" expanded="True">
             <Node name="BankingApp" expanded="True">
               <Node name="Pages" expanded="True">
-                <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" expanded="True" />
-                </Node>
                 <Node name="CreateAccount.cshtml" expanded="True" />
                 <Node name="Login.cshtml" expanded="True" />
               </Node>
@@ -30,9 +21,7 @@
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>this.Credentials</Value>
-        </State>
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
