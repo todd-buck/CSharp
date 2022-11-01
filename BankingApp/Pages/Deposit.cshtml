@@ -1,14 +1,10 @@
 ﻿@page
-@model BankingApp.Pages.AccountHomeModel
+@model BankingApp.Pages.DepositModel
 @{
     ViewData["Title"] = "Account Home";
 }
 @{
     string FirstName = Model.UserSession.FirstName;
-    string LastName = Model.UserSession.LastName;
-    string CardNum = Model.UserSession.CardNum;
-    string Pin = Model.UserSession.Pin;
-    string Balance = Model.UserSession.Balance;
 }
 
 <header>
@@ -42,14 +38,32 @@
     </nav>
 </header>
 <div class="container border" style="padding: 10px">
-    <p>
-        <h4>User Information (Unfinished)</h4>
+    <h3>Deposit (Unfinished)</h3>
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <!--Amount_To_Deposit Collection-->
+        <div class="form-group-row">
+            <div class="col-2" style="padding-bottom: 10px">
+                <label asp-for="Amount_To_Deposit">Amount To Deposit:</label>
+            </div>
+            <div class="col-5" style="padding-bottom: 20px">
+                <input type="text" asp-for="Amount_To_Deposit" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="Amount_To_Deposit"></span>
+        </div>
 
-        First Name: @FirstName<br />
-        Last Name: @LastName<br />
-        Card Number: @CardNum<br />
-        Pin: @Pin<br />
-        Balance: $@Balance<br />
-    </p>
+        <h5>Balance: $@Model.UserSession.Balance</h5>
 
+        <!--Submit Button-->
+        <div class="form-group-row" style="padding-top:10px">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Deposit" />
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+    </form>
+    
 </div>
+

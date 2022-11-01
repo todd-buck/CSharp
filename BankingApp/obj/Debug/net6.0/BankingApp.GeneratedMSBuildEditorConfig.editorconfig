@@ -23,6 +23,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3JlYXRlQWNjb3VudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/Deposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRGVwb3NpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/EditAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdEFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +49,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/Withdraw.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2l0aGRyYXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/toddbuck/Desktop/Github/CSharp/BankingApp/Pages/_ViewImports.cshtml]

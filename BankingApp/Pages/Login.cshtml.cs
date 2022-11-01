@@ -20,15 +20,28 @@ namespace BankingApp.Pages
         {
             if (HttpContext.Session.GetInt32("InvalidCredentials") != null && HttpContext.Session.GetInt32("InvalidCredentials") == 1)
             {
+                //displays error message
                 InvalidCredentials = true;
+
+                //clear invalid credentials flag
                 HttpContext.Session.SetInt32("InvalidCredentials", 0);
             }
         }
 
         public void OnPost()
         {
+            //preparing user input (eliminating all spaces from input)
+            string UserInput_CardNum = Request.Form["UserCredentials.CardNum"];
+            if (UserInput_CardNum.Contains(" ")) UserInput_CardNum.Replace(" ", "");
+
+            string UserInput_Pin = Request.Form["UserCredentials.Pin"];
+            if (UserInput_Pin.Contains(" ")) UserInput_Pin.Replace(" ", "");
+
+            //TODO
+            //implement check to ensure that user form only contains numbers
+
             //Validates User
-            User PotentialUser = new User(Request.Form["UserCredentials.CardNum"], Request.Form["UserCredentials.Pin"]);
+            User PotentialUser = new User(UserInput_CardNum, UserInput_Pin);
             ClientDatabaseConnection clientDbConnection = new ClientDatabaseConnection();
             PotentialUser = clientDbConnection.ValidateUser(PotentialUser);
 
@@ -48,10 +61,10 @@ namespace BankingApp.Pages
             }
             else
             {
+                //sets invalid credentials flag
                 HttpContext.Session.SetInt32("InvalidCredentials", 1);
-                ////TODO: add error message on incorrect login
-                ////Incorrect CardNum/Pin, redirects to login page
-                Console.WriteLine("Invalid CardNum/Pin");
+
+                //reloads page with invalid credentials flag set
                 Response.Redirect("Login");
             }
 
